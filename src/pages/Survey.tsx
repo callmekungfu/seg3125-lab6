@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import { Layout, Typography, Form, Input, Button, Select, message } from 'antd';
+import {
+  Layout,
+  Typography,
+  Form,
+  Input,
+  Button,
+  Select,
+  message,
+  Menu,
+} from 'antd';
 import axios from 'axios';
 import { Store } from 'antd/lib/form/interface';
+import { Link } from 'react-router-dom';
 
 const { Title } = Typography;
 const { Option } = Select;
-
-interface SubmissionData {
-  animal: string;
-  fruit: string;
-  color: string;
-}
 
 const layout = {
   labelCol: { span: 24 },
@@ -51,7 +55,13 @@ function Survey() {
   return (
     <div className="survey-page">
       <Layout className="layout">
-        <Header></Header>
+        <Header>
+          <Menu theme="dark" mode="horizontal">
+            <Menu.Item key="1">
+              <Link to="/analysis">See Analysis</Link>
+            </Menu.Item>
+          </Menu>
+        </Header>
         <Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content">
             <Title>About you Survey</Title>

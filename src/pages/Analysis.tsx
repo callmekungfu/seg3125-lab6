@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Typography, Row, Col, Statistic, Divider, List } from 'antd';
+import {
+  Layout,
+  Typography,
+  Row,
+  Col,
+  Statistic,
+  Divider,
+  List,
+  Menu,
+} from 'antd';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const { Title } = Typography;
 
@@ -41,7 +51,13 @@ const AnalysisPage = () => {
   return (
     <div className="analysis-page">
       <Layout className="layout">
-        <Layout.Header></Layout.Header>
+        <Layout.Header>
+          <Menu theme="dark" mode="horizontal">
+            <Menu.Item key="1">
+              <Link to="/">See Survey</Link>
+            </Menu.Item>
+          </Menu>
+        </Layout.Header>
         <Layout.Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content">
             <Title>Survey Analysis</Title>
