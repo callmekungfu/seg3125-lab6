@@ -135,7 +135,7 @@ function Survey() {
                   },
                 ]}
               >
-                <Slider defaultValue={30} tooltipVisible />
+                <Slider />
               </Form.Item>
 
               <Form.Item
