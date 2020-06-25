@@ -43,7 +43,10 @@ module.exports = function (app) {
     var color = readData('color');
     var fruit = readData('fruit');
     var animal = readData('animal');
-    res.json({ color, fruit, animal });
+    var temperature = readData('temperature');
+    var website = readData('website');
+    var rating = readData('rating');
+    res.json({ color, fruit, animal, temperature, website, rating });
   });
 
   // when a user types SUBMIT in localhost:3000/niceSurvey
@@ -55,7 +58,7 @@ module.exports = function (app) {
     for (var key in json) {
       console.log(key + ': ' + json[key]);
       // in the case of checkboxes, the user might check more than one
-      if (key === 'color' && json[key].length === 2) {
+      if (key === 'website' && json[key].length === 2) {
         for (var item in json[key]) {
           combineCounts(key, json[key][item]);
         }

@@ -8,6 +8,11 @@ import {
   Select,
   message,
   Menu,
+  Slider,
+  Checkbox,
+  Row,
+  Col,
+  Rate,
 } from 'antd';
 import axios from 'axios';
 import { Store } from 'antd/lib/form/interface';
@@ -118,6 +123,66 @@ function Survey() {
                   <Option value="Dog">Dog</Option>
                   <Option value="Turtle">Turtle</Option>
                 </Select>
+              </Form.Item>
+
+              <Form.Item
+                label="Your Favorite Temperature"
+                name="temperature"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please tell us your favorite temperature.',
+                  },
+                ]}
+              >
+                <Slider defaultValue={30} tooltipVisible />
+              </Form.Item>
+
+              <Form.Item
+                name="website"
+                label="Websites you visit during the quarentine"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please tell us your favorite websites.',
+                  },
+                ]}
+              >
+                <Checkbox.Group>
+                  <Row>
+                    <Col span={24}>
+                      <Checkbox value="Netflix" style={{ lineHeight: '32px' }}>
+                        Netflix
+                      </Checkbox>
+                    </Col>
+                    <Col span={24}>
+                      <Checkbox value="YouTube" style={{ lineHeight: '32px' }}>
+                        YouTube
+                      </Checkbox>
+                    </Col>
+                    <Col span={24}>
+                      <Checkbox
+                        value="Amazon Prime"
+                        style={{ lineHeight: '32px' }}
+                      >
+                        Amazon Prime
+                      </Checkbox>
+                    </Col>
+                  </Row>
+                </Checkbox.Group>
+              </Form.Item>
+
+              <Form.Item
+                name="rating"
+                label="Rate this Survey"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please rate this survey.',
+                  },
+                ]}
+              >
+                <Rate />
               </Form.Item>
 
               <Form.Item {...tailLayout}>
